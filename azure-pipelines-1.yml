@@ -19,4 +19,21 @@ steps:
 - script: |
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
+
+- task: AzureKeyVault@1
+  inputs:
+    azureSubscription: 'Visual Studio Enterprise Subscription – MPN(90964ca6-bc75-4398-9fa2-75c890c373cf)'
+    KeyVaultName: 'certs-keyvault-test'
+    SecretsFilter: '*'
+    RunAsPreJob: false
+
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: |
+      # Write your PowerShell commands here.
+      
+      Write-Host $test-certificate
+      Write-Host $vmadmin
+
   displayName: 'Run a multi-line script'
