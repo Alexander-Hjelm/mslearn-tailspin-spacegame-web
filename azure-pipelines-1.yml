@@ -26,12 +26,10 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-      # Write your PowerShell commands here.
-      
       Write-Host $(test-certificate)
+
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: |
       Write-Host $(vmadmin)
-      Write-Host $(env:test-certificate)
-      Write-Host $(env:vmadmin)
-
-
-  displayName: 'Run a multi-line script'
