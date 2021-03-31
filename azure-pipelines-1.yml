@@ -3,14 +3,14 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
+variables:
+- group: certs-var-group
+
 trigger:
 - master
 
 pool:
   vmImage: ubuntu-latest
-
-variables:
-- group: certs-var-group
 
 container:
 steps:
