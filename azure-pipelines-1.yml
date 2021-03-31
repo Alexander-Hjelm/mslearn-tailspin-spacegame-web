@@ -13,12 +13,6 @@ variables:
 - group: certs-var-group
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
 
 #- task: AzureKeyVault@1
 #  inputs:
@@ -34,7 +28,10 @@ steps:
     script: |
       # Write your PowerShell commands here.
       
-      Write-Host $test-certificate
-      Write-Host $vmadmin
+      Write-Host $(test-certificate)
+      Write-Host $(vmadmin)
+      Write-Host $(env:test-certificate)
+      Write-Host $(env:vmadmin)
+
 
   displayName: 'Run a multi-line script'
