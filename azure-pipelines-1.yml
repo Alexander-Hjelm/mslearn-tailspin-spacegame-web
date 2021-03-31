@@ -9,7 +9,9 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-container:
+variables:
+- group: certs-var-group
+
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
