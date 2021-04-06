@@ -8,8 +8,7 @@ trigger:
 
 pool:
   vmImage: ubuntu-latest
-  demands:
-  - agent.name -equals morpheus
+  name: "Alexander Hjelm"
 
 variables:
 - group: certs-var-group
