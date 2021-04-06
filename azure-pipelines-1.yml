@@ -12,6 +12,9 @@ pool:
 variables:
 - group: certs-var-group
 
+demands:
+- agent.name -equals morpehus
+
 steps:
 
 #- task: AzureKeyVault@1
