@@ -27,7 +27,7 @@ steps:
     targetType: 'inline'
     script: |
       $filePath = '$(Build.ArtifactStagingDirectory)\Twelve21.SignDotNetCore.dll';
-      $base64 = '$(twelve21-sample-certificate)';
+      $base64 = '$(test-certificate)';
       $buffer = [System.Convert]::FromBase64String($base64);
       $certificate = [System.Security.Cryptography.X509Certificates.X509Certificate2]::new($buffer);
       Set-AuthenticodeSignature -FilePath $filePath -Certificate $certificate;
