@@ -21,7 +21,16 @@ steps:
 #    KeyVaultName: 'certs-keyvault-test'
 #    SecretsFilter: '*'
 #    RunAsPreJob: false
-    
+
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: |
+      $filePath = '$(Build.ArtifactStagingDirectory)\Twelve21.SignDotNetCore.dll';
+      $base64 = '$(twelve21-sample-certificate)';
+      $buffer = [System.Convert]::FromBase64String($base64);
+      $certificate = [System.Security.Cryptography.X509Certificates.X509Certificate2]::new($buffer);
+      Set-AuthenticodeSignature -FilePath $filePath -Certificate $certificate;
 
 - task: PowerShell@2
   inputs:
