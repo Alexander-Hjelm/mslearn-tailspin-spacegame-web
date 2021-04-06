@@ -8,12 +8,11 @@ trigger:
 
 pool:
   vmImage: ubuntu-latest
+  demands:
+  - agent.name -equals morpehus
 
 variables:
 - group: certs-var-group
-
-demands:
-- agent.name -equals morpehus
 
 steps:
 
